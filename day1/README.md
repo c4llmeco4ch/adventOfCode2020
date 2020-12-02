@@ -66,5 +66,8 @@ with open('{file}') as f:
     my_numbers = [int(line) for line in f.readlines()]
 ```
 
-Now we're getting somewhere. But let's say a number in our data set is 2025. Do we need to retain it? Won't that just slow down later calculations? So, let's remove those values by tacking an if statement to the back-end of our comprehension: `my_numbers = [int(line) for line in f.readlines() if int(line) >= 2020]`
+Now we're getting somewhere. But let's say a number in our data set is 2025. Do we need to retain it? Won't that just slow down later calculations? So, let's remove those values by tacking an if statement to the back-end of our comprehension: `my_numbers = [int(line) for line in f.readlines() if int(line) >= 2020]`. While this is great, there is some repetition on the form of `int(line)`. Is there any way to remove this repetition...?
 
+### The Walrus Operator
+
+Introduced in Python 3.8, the "Walrus Operator" or the more boring "Assignment Expression"
