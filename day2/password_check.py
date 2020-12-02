@@ -31,6 +31,6 @@ with open('passwords.txt') as f:
     correct = 0
     for line in f.readlines():
         small, big, ch, pw = int((s := re.split('[-: ]', line))[0]), int(s[1]), s[2], s[4]
-        if (pw[small - 1] == ch or pw[big - 1] == ch) and pw[small - 1] != pw[big - 1]:
+        if (pw[small - 1] == ch) ^ (pw[big - 1] == ch):
             correct += 1
     print(correct)
