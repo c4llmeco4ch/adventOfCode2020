@@ -1,8 +1,10 @@
 from typing import Tuple
+import re
 # PART 1
 
+'''My initial implementation of breaking each line's key down into easy-to-use parts
 def parse_key(k: str) -> Tuple[int, int, str]:
-    """Given a key in the format '{num}-{num} {letter}, return the three value as a tuple
+    """Given a key in the format '{num}-{num} {letter}, return the three values as a tuple
 
     Args:
         k (str): The provided key to compare against a password
@@ -13,12 +15,12 @@ def parse_key(k: str) -> Tuple[int, int, str]:
     nums, ch = k.split()
     small, big = int((s := nums.split('-'))[0]), int(s[1])
     return small, big, ch
+'''
 
 with open('passwords.txt') as f:
     correct = 0
     for line in f.readlines():
-        key, pw = line.split(':')
-        small, big, ch = parse_key(key)
+        small, big, ch, pw = int((s := re.split('[-: ]', line))[0]), int(s[1]), s[2], s[4]
         if (c := pw.count(ch)) >= small and c <= big:
             correct += 1
     print(correct)
@@ -28,9 +30,7 @@ with open('passwords.txt') as f:
 with open('passwords.txt') as f:
     correct = 0
     for line in f.readlines():
-        key, pw = line.split(':')
-        small, big, ch = parse_key(key)
-        pw = pw.strip()
+        small, big, ch, pw = int((s := re.split('[-: ]', line))[0]), int(s[1]), s[2], s[4]
         if (pw[small - 1] == ch or pw[big - 1] == ch) and pw[small - 1] != pw[big - 1]:
             correct += 1
     print(correct)
