@@ -20,8 +20,9 @@ trees = [0] * len(xSpeed)
 with open('slope.txt') as f:
     for pos, line in enumerate(f.readlines()[1:]):
         line = line.strip()
-        x = [(x[j] + (xS if (pos - 1) % ySpeed[j] == 0 else 0)) % len(line) for j, xS in enumerate(xSpeed)]
-        trees = [trees[p] + (1 if line[i] == '#' else 0) for p, i in enumerate(x)]
+        shouldNotSkip = [(pos - 1) % yS == 0 for yS in ySpeed]
+        x = [(x[j] + (xS if shouldNotSkip[j] else 0)) % len(line) for j, xS in enumerate(xSpeed)]
+        trees = [trees[p] + (1 if line[i] == '#' and shouldNotSkip[p] else 0) for p, i in enumerate(x)]
 total = 1
 print(trees)
 for val in trees:
