@@ -1,14 +1,18 @@
 # Day 3 Write-up
 
-Tl;dr
+Tl;dr:
 
+- Ternary operators condense short if-else blocks into a single line
+- List comprehension is one of the best features in Python. Use it.
+- `enumerate()` combines the benefits of traditional for loops with those of a for-each loop
+- `reduce()` helps combine values together using the same operation
 
 ## The Question
 
 With the toboggan login problems resolved, you set off toward the airport. While travel by toboggan might be easy, it's certainly not safe: there's very minimal steering and the area is covered in trees. You'll need to see which angles will take you near the fewest trees.
 
 Due to the local geology, trees in this area only grow on exact integer coordinates in a grid. You make a map (your puzzle input) of the open squares (.) and trees (#) you can see. For example:
-
+```md
 ..##.......
 #...#...#..
 .#....#..#.
@@ -20,8 +24,9 @@ Due to the local geology, trees in this area only grow on exact integer coordina
 #.##...#...
 #...##....#
 .#..#...#.#
+```
 These aren't the only trees, though; due to something you read about once involving arboreal genetics and biome stability, the same pattern repeats to the right many times:
-
+```md
 ..##.........##.........##.........##.........##.........##.......  --->
 #...#...#..#...#...#..#...#...#..#...#...#..#...#...#..#...#...#..
 .#....#..#..#....#..#..#....#..#..#....#..#..#....#..#..#....#..#.
@@ -33,6 +38,7 @@ These aren't the only trees, though; due to something you read about once involv
 #.##...#...#.##...#...#.##...#...#.##...#...#.##...#...#.##...#...
 #...##....##...##....##...##....##...##....##...##....##...##....#
 .#..#...#.#.#..#...#.#.#..#...#.#.#..#...#.#.#..#...#.#.#..#...#.#  --->
+```
 You start on the open square (.) in the top-left corner and need to reach the bottom (below the bottom-most row on your map).
 
 The toboggan can only follow a few specific slopes (you opted for a cheaper model that prefers rational numbers); start by counting all the trees you would encounter for the slope right 3, down 1:
@@ -57,3 +63,4 @@ In this example, traversing the map using this slope would cause you to encounte
 
 Starting at the top-left corner of your map and following a slope of right 3 and down 1, how many trees would you encounter?
 
+## Process
