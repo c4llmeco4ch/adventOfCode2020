@@ -133,7 +133,7 @@ T | F | T
 F | T | T
 F | F | F
 
-To use XOR in Python (and most languages), a carrot (`^`) is used. With this, we can shorten our condition to `if (pw[small - 1] == ch) ^ (pw[big - 1] == ch)`. 
+To use XOR in Python (and most languages), a carrot (`^`) is used. With this, we can shorten our condition to `if (pw[small - 1] == ch) ^ (pw[big - 1] == ch)`.
 
 Thus, the full code for this part is...
 
