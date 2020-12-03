@@ -20,7 +20,7 @@ def parse_key(k: str) -> Tuple[int, int, str]:
 with open('passwords.txt') as f:
     correct = 0
     for line in f.readlines():
-        small, big, ch, pw = int((s := re.split('[-: ]', line))[0]), int(s[1]), s[2], s[4]
+        small, big, ch, pw = int((s := re.split(r'[-: ]', line))[0]), int(s[1]), s[2], s[4]
         if small <= pw.count(ch) <= big:
             correct += 1
     print(correct)
@@ -30,7 +30,7 @@ with open('passwords.txt') as f:
 with open('passwords.txt') as f:
     correct = 0
     for line in f.readlines():
-        small, big, ch, pw = int((s := re.split('[-: ]', line))[0]), int(s[1]), s[2], s[4]
+        small, big, ch, pw = int((s := re.split(r'[-: ]', line))[0]), int(s[1]), s[2], s[4]
         if (pw[small - 1] == ch) ^ (pw[big - 1] == ch):
             correct += 1
     print(correct)
