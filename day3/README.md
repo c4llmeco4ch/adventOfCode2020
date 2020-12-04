@@ -222,7 +222,7 @@ with open('slope.txt') as f:
 
 ### Bringing it all together (literally) with reduce()
 
-Normally, this would be the point in the code where I'd explain that I did indeed run the code and got a final answer. However, there is a simple way and a more complicated but interesting way to perform this operation of finding the product from a list of numbers.
+Normally, this would be the point where I'd explain that I did indeed run the code and got a final answer. However, there is a simple way and a more complicated but interesting way to perform this operation of finding the product from a list of numbers.
 
 First the simple way: we create a running total variable and give it a value of 1. After that, we iterate over our tree values and mulitply them by the running total, having our answer afterwards:
 
@@ -244,4 +244,4 @@ And yes, when run against this data set, we receive a value of 1,574,890,240.
 
 ---
 
-[Find me on Twitter](https://twitter.com/c4llmeco4ch)
+[Follow me on Twitter](https://twitter.com/c4llmeco4ch)
