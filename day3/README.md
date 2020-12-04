@@ -164,7 +164,7 @@ for i in range(len(carDealerships)):
     # code
 ```
 
-But what does `range()` actually do? [According to the official documentation](https://docs.python.org/3.8/library/stdtypes.html#typesseq-range), the function creates an immutable sequence similar to a tuple or list. So really, the above code snippet is actually picking individual values from a sequence. Further exploration might lead someone to realize that altering `i` will also not affect the values inside the iterable. This means that in Python, all for loops are *in fact* for-each loops. 
+But what does `range()` actually do? [According to the official documentation](https://docs.python.org/3.8/library/stdtypes.html#typesseq-range), the function creates an immutable sequence similar to a tuple or list. So really, the above code snippet is actually picking individual values from a sequence. Further exploration might lead someone to realize that altering `i` will also not affect the values inside the iterable. This means that in Python, all for loops are *in fact* for-each loops.
 
 `enumerate()`, however, allows for the creation of a for loop that has the benefits of *both* a traditional for loop and a for-each loop. [By iterating over tuples](https://docs.python.org/3.8/library/functions.html#enumerate) of the position and value of items in an list, we are given easy read access *and* easy write access in a nice, Pythonic package.
 
