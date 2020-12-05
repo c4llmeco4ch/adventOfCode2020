@@ -19,13 +19,12 @@ print(top_id)
 # PART 2
 
 with open('id_list.txt') as f:
-    all_ids = set([(bin_search(k[:7]) * 8) + bin_search(line[7:], high=7) for k in f.readlines()])
+    all_ids = set()
+    for line in f.readlines():
+        row, col = bin_search(line[:7]), bin_search(line[7:], high=7)
+        seat = (row * 8) + col
+        all_ids.add(seat)
 all_ids = sorted(list(all_ids))
-print(all_ids)
-for pos, val in enumerate(all_ids):
-    if pos == 0 or pos == len(all_ids) - 1:
-        continue
-    if all_ids[pos - 1] == val - 1 and all_ids[pos + 1] == val + 1:
-        print(f'Found {val}')
-else:
-    print('Uh, sir, we have a problem...')
+for pos, val in enumerate(all_ids[:-1]):
+    if all_ids[pos + 1] != val + 1:
+        print(f'Am id {val}, next is {all_ids[pos + 1]}')
