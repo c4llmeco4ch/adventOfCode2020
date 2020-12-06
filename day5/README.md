@@ -44,3 +44,7 @@ BFFFBBFRRR: row 70, column 7, seat ID 567.
 FFFBBBFRRR: row 14, column 7, seat ID 119.
 BBFFBBFRLL: row 102, column 4, seat ID 820.
 As a sanity check, look through your list of boarding passes. What is the highest seat ID on a boarding pass?
+
+## Process
+
+For part 1, the main question we need to address is, "how do we go from boarding pass values to 

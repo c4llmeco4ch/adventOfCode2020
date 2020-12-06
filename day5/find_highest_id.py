@@ -19,10 +19,9 @@ print(top_id)
 import itertools
 
 def calc_all_options():
-    valid_ids = {}
+    valid_ids = set()
     for key in itertools.product(itertools.product('BF', repeat=7), itertools.product('RL', repeat=3)):
-        boarding_id = ''.join([''.join(key[0]), ''.join(key[1])])
-        valid_ids[boarding_id] = (key_to_bin(''.join(key[0])) * 8) + key_to_bin(''.join(key[1]))
+        valid_ids.add((key_to_bin(''.join(key[0])) * 8) + key_to_bin(''.join(key[1])))
     return valid_ids
 
 possibilities = calc_all_options()
@@ -34,5 +33,5 @@ with open('id_list.txt') as f:
         seat = (row * 8) + col
         all_ids.add(seat)
 for i in range(min(all_ids), max(all_ids)):
-    if i - 1 in all_ids and i + 1 in all_ids and i not in all_ids and i in possibilities.values():
+    if i - 1 in all_ids and i + 1 in all_ids and i not in all_ids and i in possibilities:
         print(f'try {i}')
