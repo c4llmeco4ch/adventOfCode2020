@@ -47,4 +47,19 @@ As a sanity check, look through your list of boarding passes. What is the highes
 
 ## Process
 
-For part 1, the main question we need to address is, "how do we go from boarding pass values to 
+For part 1, the main question we need to address is, "how do we go from boarding pass values to seat IDs?" One possible way to implement a binary search. For the uninitiated, this is an algorithm which allows for very quick searches by halving the possible options in a given range by half at each choice. The pseudocode looks like this:
+
+```md
+low = minimum_number
+high = maximum_number
+while low < high (and some condition is reached, optionally):
+    guess = the avg of low and high
+    if correct:
+        exit the loop
+    else if 'too low':
+        low = guess
+    else:
+        high = guess
+```
+
+In our case, "too low" would be a value of "B"/"R" in the key, and "too high" would be a value of "F"/"L". 
