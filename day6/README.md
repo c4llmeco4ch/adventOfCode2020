@@ -92,4 +92,8 @@ for line in group:
         response.add(question)
 ```
 
-However, there is an even better way to approach this issue. Sets have two special operations: intersect and union. Without diving too far into set theory, intersection takes two sets and returns only the values that are in both (put a pin in this for later). Union, on the other hand, returns the unique values that are in both sets. For this part, union seems like a perfect fit. There are two ways of utilizing this function in Python: `set.union()` and the union operator (`|`).
+However, there is an even better way to approach this issue. Sets have two special operations: intersect and union. Without diving too far into set theory, intersection takes two sets and returns only the values that are in both (put a pin in this for later). Union, on the other hand, returns the unique values that are in both sets. For this part, union seems like a perfect fit. There are two ways of utilizing this function in Python: `set.union()` and the union operator (`|`). By casting `line` as a set, we can simply write `response = response | set(line)`.
+
+With the for loop, `for line in group:`, completed, we now have every unique response from that group stored in `response`. All we have to do is add how many responses we have to `ans`: `ans += len(response)`. 
+
+Finally, we need to recalibrate `lines` for our next group. 
