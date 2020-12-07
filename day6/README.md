@@ -46,3 +46,5 @@ The last group contains one person who answered "yes" to only 1 question, b.
 In this example, the sum of these counts is 3 + 3 + 3 + 1 + 1 = 11.
 
 For each group, count the number of questions to which anyone answered "yes". What is the sum of those counts?
+
+## Process

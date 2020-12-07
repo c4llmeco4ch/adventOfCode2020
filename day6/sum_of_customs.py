@@ -13,8 +13,7 @@ with open('customs.txt') as f:
         resp = set()
         for line in group:
             line = line.strip() # I learned my lesson this time...
-            for ch in line: # Not thrilled about a nested loop
-                resp.add(ch)
+            resp = resp | set(line)
         ans += len(resp)
         lines = lines[end + 1:]
         if len(lines) < 1:
@@ -36,7 +35,7 @@ with open('customs.txt') as f:
         resp = {ch for ch in group[0].strip()} # Poggers
         for line in group[1:]:
             line = line.strip()
-            resp = {v for v in resp if v in line}
+            resp = resp & set(line)
         ans += len(resp)
         lines = lines[end + 1:]
         if len(lines) < 1:
