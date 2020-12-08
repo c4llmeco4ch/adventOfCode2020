@@ -2,9 +2,8 @@
 
 Tl;dr:
 
-- T
-- B
-- D
+- Set comprehension does not exist. I did not know this and now you do, too
+- Set operators (| and &) can be extremely powerful
 
 ## Problem
 
@@ -94,6 +93,24 @@ for line in group:
 
 However, there is an even better way to approach this issue. Sets have two special operations: intersect and union. Without diving too far into set theory, intersection takes two sets and returns only the values that are in both (put a pin in this for later). Union, on the other hand, returns the unique values that are in both sets. For this part, union seems like a perfect fit. There are two ways of utilizing this function in Python: `set.union()` and the union operator (`|`). By casting `line` as a set, we can simply write `response = response | set(line)`.
 
-With the for loop, `for line in group:`, completed, we now have every unique response from that group stored in `response`. All we have to do is add how many responses we have to `ans`: `ans += len(response)`. 
+With the for loop, `for line in group:`, completed, we now have every unique response from that group stored in `response`. All we have to do is add how many responses we have to `ans`: `ans += len(response)`.
 
-Finally, we need to recalibrate `lines` for our next group. 
+Finally, we need to recalibrate `lines` for our next group. Given we have `end`, which tells us the space after a particular group, we should simply delete the lines we have read: `lines = lines[end + 1]`. Finally, we should determine if we need to keep going or stop. The main way to tell is if there are no lines left:
+
+```python
+if len(lines) < 1:
+    are_done = True
+```
+
+## What changes in part 2
+
+As we discussed earlier, the two main operations when working with sets are union, which we used in part 1, and intersection. Part 2 states we need to find the questions that everyone answers instead of the questions that anyone answers. As such, this seems like a perfect opportunity to switch out our union for an intersect.
+
+```python
+for line in group[1:]:
+    resp = resp & set(line) # resp = response
+```
+
+Beyond that, we can take a nice shortcut when establishing our baseline in `response`. We have discussed in previous write-ups the power of list comprehension. As it turns out, set (and dictionary) comprehension exists using similar syntax: `{value for value in iterable}`. For our case, we can use `response = {ch for ch in group[0].strip()}`. Very convenient, no?
+
+Beyond these two lines, our code remains identical to part 1. That being said, sets are very powerful so having extra tools to make them more efficient to use is amazing!
