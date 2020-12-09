@@ -51,6 +51,6 @@ with open('xmas_cipher.txt') as f:
         if total == invalid_num:
             weakness = (line, int(lines[pos + offset]))
             print(f'Found it. {(line, int(lines[pos + offset]))}')
+            r = [int(x) for x in lines[pos: pos + offset + 1]]
             break
-print(sum(weakness))
-
+print(min(r) + max(r))
