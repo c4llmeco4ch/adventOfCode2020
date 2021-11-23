@@ -36,7 +36,7 @@ Of course, your expense report is much larger. Find the two entries that sum to 
 
 ## Process
 
-The solution for both parts of day 1's problem is effectively repeated, so we'll focus on the steps needed to reach part 1 and do a quick review on what (if anything) changes for part 1.
+The solution for both parts of day 1's problem is effectively repeated, so we'll focus on the steps needed to reach part 1 and do a quick review on what (if anything) changes for part 2.
 
 As we see in our provided data set from the prompt, the input is a set of numbers, 1 per line. Thus, the first step is to:
 
